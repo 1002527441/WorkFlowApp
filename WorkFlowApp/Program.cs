@@ -26,7 +26,9 @@ namespace WorkFlowApp
         {
             IServiceCollection services = new ServiceCollection();
             services.AddLogging(); // WorkflowCore需要用到logging service
-            services.AddWorkflow();
+            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=WorkflowApp;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            services.AddWorkflow(x=>x.UseSqlServer(connectionString, true, true));
+         
 
             var serviceProvider = services.BuildServiceProvider();
 

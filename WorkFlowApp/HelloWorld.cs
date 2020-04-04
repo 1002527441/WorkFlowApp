@@ -24,6 +24,27 @@ namespace WorkFlowApp
         }
     }
 
+    public class SayHello : StepBody
+    {
+        public override ExecutionResult Run(IStepExecutionContext context)
+        {
+            Console.WriteLine("Say Hello World!");
+            return ExecutionResult.Next();
+        }
+    }
+
+
+    public class PrintMessage : StepBody
+    {
+        public string Message = string.Empty;
+        public override ExecutionResult Run(IStepExecutionContext context)
+        {
+            Console.WriteLine("Print a Message");
+            return ExecutionResult.Next();
+        }
+    }
+
+
     public class GoodbyeWorld : StepBody
     {
         public override ExecutionResult Run(IStepExecutionContext context)
