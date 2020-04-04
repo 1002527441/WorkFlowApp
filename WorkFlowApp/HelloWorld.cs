@@ -39,7 +39,7 @@ namespace WorkFlowApp
         public string Message = string.Empty;
         public override ExecutionResult Run(IStepExecutionContext context)
         {
-            Console.WriteLine("Print a Message");
+            Console.WriteLine($"Print a Message:{Message}");
             return ExecutionResult.Next();
         }
     }

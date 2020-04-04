@@ -11,14 +11,19 @@ namespace WorkFlowApp
             var serviceProvider = ConfigureServices();
             var host = serviceProvider.GetService<IWorkflowHost>();
             host.RegisterWorkflow<HelloWorldWorkflow>();
+            host.RegisterWorkflow<IfStatementWorkflow, MyData>();
+            host.RegisterWorkflow<DelayWorkflow>();
             host.Start();
 
             // Demo1:Hello World
-            host.StartWorkflow("HelloWorldHenry");
+            host.StartWorkflow("HelloWorldHenry");       
+            host.StartWorkflow("if-sample");        
+            host.StartWorkflow("Delay-Task");
+         
 
             Console.ReadKey();
-            host.Stop();
-
+           
+   host.Stop();
 
         }
 

@@ -25,6 +25,7 @@ namespace WorkFlowApp
                .If(data => data.Counter < 5).Do(then => then
                         .StartWith<PrintMessage>()
                             .Input(step => step.Message, data => "Outcome is less than 5")
+                            
                 )
                 .Then<GoodbyeWorld>();
         }
@@ -32,7 +33,7 @@ namespace WorkFlowApp
 
     public class DelayWorkflow : IWorkflow
     {
-        public string Id => "Delay Task";
+        public string Id => "Delay-Task";
 
         public int Version =>1;
 
@@ -64,6 +65,7 @@ namespace WorkFlowApp
         }
     }
 
+ 
 
     public class MyData
     {
